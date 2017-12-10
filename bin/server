@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+'use strict'
+
+const NumbersStation = require('../lib')
+const pkg = require('../package.json')
+
+if (['help', '-h', '--help'].indexOf(process.argv[2]) !== -1) {
+  // display usage info
+  console.log(help())
+} else {
+  // start the station
+  start()
+}
+
+function help () {
+  return `
+  ${pkg.description}
+
+  Usage: ${pkg.name}
+
+  Listens on port ${NumbersStation.DEFAULT_PORT} or $PORT.
+
+  Generates random integers of ${NumbersStation.DEFAULT_BYTES} or $BYTES bytes every ${NumbersStation.DEFAULT_INTERVAL} or $INTERVAL milliseconds.
+
+  Examples:
+
+    # start with default settings
+    numbers-station
+    # listen on port 5000 and generate a 3-byte number every second
+    PORT=5000 BYTES=3 INTERVAL=1000 numbers-station
+  `
+}
+
+function start () {
+  const port = process.env.PORT || NumbersStation.DEFAULT_PORT
+  const bytes = parseInt(process.env.BYTES) || NumbersStation.DEFAULT_BYTES
+  const interval = parseInt(process.env.INTERVAL) || NumbersStation.DEFAULT_INTERVAL
+  const ns = new NumbersStation(bytes, interval)
+  ns.start()
+  ns.listen(port, () => {
+    console.log(`Now listening on port ${port}`)
+  })
+}

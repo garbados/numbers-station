@@ -1,0 +1,30 @@
+{
+  "name": "numbers-station",
+  "version": "0.1.0",
+  "description": "An HTTP server for generating a pseudorandom series of numbers.",
+  "main": "lib/index.js",
+  "bin": "./bin/server",
+  "scripts": {
+    "start": "./bin/server",
+    "test": "standard && dependency-check . && tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garbados/numbers-station.git"
+  },
+  "keywords": [
+    "random",
+    "numbers"
+  ],
+  "author": "Diana Thayer <garbados@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/garbados/numbers-station/issues"
+  },
+  "homepage": "https://github.com/garbados/numbers-station#readme",
+  "devDependencies": {
+    "dependency-check": "^2.9.1",
+    "standard": "^10.0.3",
+    "tap": "^11.0.0"
+  }
+}
