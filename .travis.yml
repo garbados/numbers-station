@@ -4,6 +4,9 @@ node_js:
 - 7
 - 8
 - 9
+cache:
+  directories:
+  - node_modules
 env:
   global:
     secure: lpaR9GFkA3hXQGA/MVfIX+ztr+sadtDF/hkz6SeQQ7rvF+qgTXWRxD9qP9np+MsU3iw/MRIiM5uWPliMVQDSiUNjrXUjldXSWbyBv1XXhqmGoNZsDAEP6uQEsNxSpvA2aLmrUJLk8Ru4AlRxPSnbIZabNzgEy8qilYND+dWovYSlLEljjT5PUbtvl/dEr7s9ot0NFnAGpjMZxvrHg8PnuVtJ1PXeouA3xeMyssRmfke3/BQDovsEuZ/GeKyQB1getm7bDAytQrQOEBUV3SYgfDtZb7nUABrMQZ/UTWVRxghVu4tL+h0oYZD43vaTmOeAXGgOhXrAKPv1QyUtLBrsi4+K71A1tSAjRC56R65M1upo+DnWv8pxMFxIGceZs8195L+0FhR/+l3gkXINw/eQ4xzeFcEP8JsGbm3roOFr6bbmy9o7LDORGgbsY8NGFQH2mLlchctn7ukykUpIdNnqQGM25F8SfFSr1jwq2olFbRTYJqKbIxqcesgQWX7YKIPuWjZWAlgUwluoOwzPiKs/M2VY/stx3kPiillgEx0S2fN44VTGkJJbMZ05B7v2mTDdnxNZQq6vdnbTrQJXVJVrZ/uli6wl49C6Kcmk2TsxrhlypOFTyPEyiR1O+AoKDLylXE5BELJ7YkemTUNXpn/zcQc6231gxDUlVnn0MfC2bts=
