@@ -20,22 +20,22 @@ function help () {
 
   Listens on port ${NumbersStation.DEFAULT_PORT} or $PORT.
 
-  Generates random integers of ${NumbersStation.DEFAULT_BYTES} or $BYTES bytes every ${NumbersStation.DEFAULT_INTERVAL} or $INTERVAL milliseconds.
+  Generates random integers between 0 and ${Number.MAX_SAFE_INTEGER} or $MAXIMUM every ${NumbersStation.DEFAULT_INTERVAL} or $INTERVAL milliseconds.
 
   Examples:
 
     # start with default settings
     numbers-station
-    # listen on port 5000 and generate a 3-byte number every second
-    PORT=5000 BYTES=3 INTERVAL=1000 numbers-station
+    # listen on port 5000 and generate numbers between 0 and 100 every second
+    PORT=5000 MAXIMUM=100 INTERVAL=1000 numbers-station
   `
 }
 
 function start () {
   const port = process.env.PORT || NumbersStation.DEFAULT_PORT
-  const bytes = parseInt(process.env.BYTES) || NumbersStation.DEFAULT_BYTES
+  const maximum = parseInt(process.env.MAXIMUM) || Number.MAX_SAFE_INTEGER
   const interval = parseInt(process.env.INTERVAL) || NumbersStation.DEFAULT_INTERVAL
-  const ns = new NumbersStation(bytes, interval)
+  const ns = new NumbersStation(maximum, interval)
   ns.start()
   ns.listen(port, () => {
     console.log(`Now listening on port ${port}`)
