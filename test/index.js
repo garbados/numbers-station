@@ -2,7 +2,7 @@ const tap = require('tap')
 const NumbersStation = require('../lib')
 
 tap.test('numbers-station', (test) => {
-  const ns = new NumbersStation(1, 1000, 6)
+  const ns = new NumbersStation(100, 1000, 100)
   // ticker generates random numbers as soon as it starts
   test.equal(ns.number, undefined)
   ns.start()
