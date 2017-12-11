@@ -32,7 +32,7 @@ tap.test('numbers-station', (test) => {
 })
 
 tap.test('numbers-station.server', (test) => {
-  const port = 5432
+  const port = NumbersStation.getNumber(10000, 20000)
   const ns = new NumbersStation({ port })
   ns.listen(() => {
     http.get(`http://localhost:${port}`, (res) => {
