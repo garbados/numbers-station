@@ -39,7 +39,9 @@ Where `$SERVER` is the URL of the numbers station.
 
 ## About these random numbers
 
-numbers-station uses the built-in nodejs [crypto](https://nodejs.org/api/crypto.html) library which draws from the host machine's [entropy pool](https://en.wikipedia.org/wiki/Entropy_(computing)).
+numbers-station uses the built-in nodejs [crypto](https://nodejs.org/api/crypto.html) library which draws from the host machine's [entropy pool](https://en.wikipedia.org/wiki/Entropy_(computing)). This process generates bytes which are converted to numbers using bitwise methods derived from [joepie91/node-random-numner-csprng](https://github.com/joepie91/node-random-number-csprng) in an effort to minimize any bias introduced during the transform.
+
+If you notice any problems with this process, or know of ways to improve it, please [file an issue](https://github.com/garbados/numbers-station/issues)!
 
 ## Testing
 

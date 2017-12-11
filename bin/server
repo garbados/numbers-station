@@ -33,9 +33,10 @@ function help () {
 
 function start () {
   const port = process.env.PORT || NumbersStation.DEFAULT_PORT
+  const minimum = parseInt(process.env.MINIMUM) || Number.MIN_SAFE_INTEGER
   const maximum = parseInt(process.env.MAXIMUM) || Number.MAX_SAFE_INTEGER
   const interval = parseInt(process.env.INTERVAL) || NumbersStation.DEFAULT_INTERVAL
-  const ns = new NumbersStation(maximum, interval)
+  const ns = new NumbersStation({ minimum, maximum, interval })
   ns.start()
   ns.listen(port, () => {
     console.log(`Now listening on port ${port}`)

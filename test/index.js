@@ -1,8 +1,9 @@
 const tap = require('tap')
 const NumbersStation = require('../lib')
+const http = require('http')
 
 tap.test('numbers-station', (test) => {
-  const ns = new NumbersStation(100, 1000)
+  const ns = new NumbersStation({ interval: 100 })
 
   // ticker generates random numbers as soon as it starts
   test.equal(ns.number, undefined)
@@ -12,19 +13,13 @@ tap.test('numbers-station', (test) => {
   // ensure promises are being resolved
   test.equal(typeof ns.number, 'number')
 
-  // ensure numbers obey the modulo
-  var maxNumber = [
-    null,
-    null,
-    null,
-    null,
-    null
-  ].map(() => {
-    return ns.getNumber()
-  }).reduce((a, b) => {
-    return Math.max(a, b)
-  }, 0)
-  test.ok(maxNumber < ns.maximum)
+  // ensure numbers obey the minimum, maximum
+  var testNumber0
+  for (var i = 0; i < 10; i++) {
+    testNumber0 = ns.getNumber()
+    test.ok(testNumber0 >= ns.minimum)
+    test.ok(testNumber0 <= ns.maximum)
+  }
 
   // wait for ticker
   const testNumber1 = ns.number
@@ -34,4 +29,22 @@ tap.test('numbers-station', (test) => {
     ns.stop()
     test.end()
   }, ns.interval + 20)
+})
+
+tap.test('numbers-station.server', (test) => {
+  const port = 5432
+  const ns = new NumbersStation({ port })
+  ns.listen(() => {
+    http.get(`http://localhost:${port}`, (res) => {
+      let rawData = ''
+      res.setEncoding('utf8')
+      res.on('data', (chunk) => { rawData += chunk })
+      res.on('end', () => {
+        const number = parseInt(rawData)
+        test.ok(number)
+        ns.stop()
+        test.end()
+      })
+    })
+  })
 })
