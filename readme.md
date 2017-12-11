@@ -1,10 +1,9 @@
 # numbers-station
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/garbados/numbers-station.svg)](https://greenkeeper.io/)
-
 [![Build Status](https://travis-ci.org/garbados/numbers-station.svg?branch=master)](https://travis-ci.org/garbados/numbers-station)
 [![Coverage Status](https://coveralls.io/repos/github/garbados/numbers-station/badge.svg?branch=master)](https://coveralls.io/github/garbados/numbers-station?branch=master)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Greenkeeper badge](https://badges.greenkeeper.io/garbados/numbers-station.svg)](https://greenkeeper.io/)
 
 An HTTP server for generating a pseudorandom series of numbers. Useful for running a [numbers station](https://en.wikipedia.org/wiki/Numbers_station).
 
