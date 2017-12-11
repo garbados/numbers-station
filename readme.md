@@ -7,7 +7,7 @@
 
 An HTTP server for generating a pseudorandom series of numbers. Useful for running a [numbers station](https://en.wikipedia.org/wiki/Numbers_station).
 
-The server broadcasts a single stream of numbers. Clients requesting the current number at the same time will receive the same number. For example, you could use a numbers station like this in identity challenges by requiring an untrusted individual to demonstrate they are following the same feed. By using a low modulo value, you can generate streams of numbers with a convenient upper bound.
+The server broadcasts a single stream of numbers. Clients requesting the current number at the same time will receive the same number. For example, you could use a numbers station like this in identity challenges by requiring an untrusted individual to demonstrate they are following the same feed.
 
 Unlike shortwave numbers stations, an HTTP server can be hidden from the pubnet and secured behind a firewall, and does not have to compete for a slice of the radio spectrum.
 
